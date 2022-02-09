@@ -1,0 +1,30 @@
+const alarmSubmit = document.getElementById('alarmSubmit')
+alarmSubmit.addEventListener('click', setAlarm);
+ 
+function setAlarm(e){
+    e.preventDefault();
+ 
+    const alarm = document.getElementById('alarm')
+    alarmDate = new Date (alarm.value)
+    console.log(`setting the alarm for ${alarm.value}`);
+ now = new Date();
+ 
+ console.log(alarmDate- now)
+ 
+ let a = alarmDate-now
+ console.log( `alarm will ring after ${a} `)
+ if (a>=0){
+ 
+ setTimeout((a) => {
+    ringBell();
+ }, a);
+  }
+ 
+ 
+}
+ 
+var audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+ 
+function ringBell(){
+    audio.play();
+}
